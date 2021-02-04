@@ -74,12 +74,14 @@ try {
 
   /// Rest parameter ///
 
-  /*
+  
 	(function UseRestParameter() {
 		// Add just one rest parameter and use the number of elements in this parameter 
 		// (What is the name of that property?) in the return statement to let the test pass.
-		function foo(a, b) {
-			return a + b;
+		function foo(a, b, ...c) {
+			// originalt (a, b). Return a + b. Gir 3
+
+			return a + b + c.length;
 		}
 
 		// Don't make changes below this line	
@@ -89,11 +91,11 @@ try {
 		
 		solved++;
 	})();
-	*/
+	
 
   /// Spread operator ///
 
-  /*
+  
 	(function UseSpreadOperator1() {
 		function add(a, b, c) {
 			return a + b + c;
@@ -102,7 +104,7 @@ try {
 		let values = [1, 3, 6];
 		
 		// Use spread operator to let the test pass.
-		let result = add(values);
+		let result = add(...values);
 
 		// Don't make changes below this line	
 		
@@ -110,16 +112,20 @@ try {
 		
 		solved++;
 	})();
-	*/
 
-  /*
+
+  
 	(function UseSpreadOperator2() {
 		const arr1 = [1, 2, 3];
 		const value = 4;
 		const arr2 = [5, 6];
+		// lagde ny variabel som inneholder en array de ovennevnte. Bruker ... på arr1 og arr2, som begge er arrays og må åpnes opp
+		const gathering = [...arr1, value, ...arr2]
 		
 		// Change after = to let the test pass. DO NOT use concat or loops, but use the spread operator.
-		let result = [0];
+		let result = gathering;
+
+		//originalt let result = [0]
 
 		// Don't make changes below this line	
 		
@@ -127,16 +133,23 @@ try {
 		
 		solved++;
 	})();
-	*/
+	
 
   /// Arrow functions ///
 
-  /*
+
 	(function UseArrow1() {
 		// Rewrite double as arrow function and make the test pass.
 		let double = function (x) {
 			return x;
 		};
+		let aFunction = (x) => {
+			return x;
+		}
+		//originalt 
+		//let double = function (x) {
+		//	return x;
+		//};
 
 		// Don't make changes below this line	
 		
@@ -145,7 +158,7 @@ try {
 		
 		solved++;
 	})();
-	*/
+
 
   /*
 	(function UseArrow2() {
