@@ -140,16 +140,13 @@ try {
 
 	(function UseArrow1() {
 		// Rewrite double as arrow function and make the test pass.
-		let double = function (x) {
-			return x;
-		};
-		let aFunction = (x) => {
-			return x;
-		}
-		//originalt 
-		//let double = function (x) {
+		let double = (x) => x + x;
+		double(3)
+
+		// originalt 		let double = function (x) {
 		//	return x;
 		//};
+		// sjekke denne, ga double 3 som argument
 
 		// Don't make changes below this line	
 		
@@ -160,10 +157,11 @@ try {
 	})();
 
 
-  /*
+
 	(function UseArrow2() {
 		// Correct the errors in the arrow function.
-		let add = x, y => return x * y;
+		let add = (x, y) => x + y;
+		// endra fra * til +
 
 		// Don't make changes below this line	
 		
@@ -172,19 +170,24 @@ try {
 		
 		solved++;
 	})();
-	*/
+
 
   /// Destructuring ///
 
-  /*
+  
 	(function UseArrayDestructuring1() {
 		const arr = [1, 2, 3, 4, 5, 6];
 		
 		// Use array destructuring to change the 3 statements below into 1 statement.
 		// Tip: Spread operator might be needed too.
-		let a = arr[0];
+
+		let [a, d, b, ...c] = arr;
+		/*
+		 let a = arr[0];
 		let b = arr[2];
-		let c = arr.slice(3); 
+		let c = arr.slice(3); */
+
+		//bare trykket ctrl+ s og ble godkjent?
 
 		// Don't make changes below this line	
 		
@@ -194,18 +197,17 @@ try {
 		
 		solved++;
 	})();
-	*/
 
-  /*
+
+
 	(function UseArrayDestructuring2() {
 		let a = 1;
 		let b = 2;
 		
 		// Use array destructuring to change the 3 statements below into 1 statement.
 		// You should not need a temporary variable anymore.
-		let tmp = a;
-		a = b;
-		b = tmp; 
+
+		[b, a] = [a, b];
 
 		// Don't make changes below this line	
 		
@@ -214,9 +216,7 @@ try {
 		
 		solved++;
 	})();
-	*/
 
-  /*
 	(function UseObjectDestructuring1() {
 		let obj = {
 			name: 'Oslo',
@@ -225,9 +225,11 @@ try {
 		}
 		
 		// Use object destructuring to change the 3 statements below into 1 statement.
-		let name = obj.name;
+		/*let name = obj.name;
 		let age = obj.age;
-		let add = obj.add;
+		let add = obj.add; */
+
+		const {name, age, add} = obj;
 
 		// Don't make changes below this line	
 		
@@ -237,13 +239,11 @@ try {
 		
 		solved++;
 	})();
-	*/
 
-  /*
   (function UseParameterDestructuring1() {
     // Adjust the code to let the test succeed.
 
-    const a = 'Oslo' + 985;
+	const a = ['Oslo', 985];
 
     // Don't make changes below this line
 
@@ -256,13 +256,12 @@ try {
 
     solved++;
   })();
-	*/
 
-  /*
+
   (function UseParameterDestructuring2() {
     // Adjust the code to let the test succeed.
 
-    const a = 'Oslo' + 985;
+    const a = {name: 'Oslo', age: 985};
 
     // Don't make changes below this line
 
@@ -275,11 +274,10 @@ try {
 
     solved++;
   })();
-	*/
 
   /// Property shorthand ///
 
-  /*
+
 	(function UsePropertyShorthand() {
 		const name = 'Oslo';
 		const age = 985;
@@ -287,8 +285,8 @@ try {
 		
 		// Remove all unnecesary syntax to let the test pass.
 		let city = {
-			name: name,
-			age: age,
+			name,
+			age,
 			dutch: !norwegian
 		};
 
@@ -298,16 +296,14 @@ try {
 		
 		solved++;
 	})();
-	*/
 
   /// Object Spread Properties (ES2018) ///
 
-  /*
 	(function UseObjectSpreadProperties1() {
 		let obj = { val: 1 };
 		
 		// Use Object Spread Properties to let the tests succeed.
-		let copy = obj;
+		let copy = {...obj};
 
 		// Don't make changes below this line	
 		
@@ -318,9 +314,8 @@ try {
 
 		solved++;
 	})();
-	*/
 
-  /*
+  
 	(function UseObjectSpreadProperties2() {
 		let obj1 = { a: 100, b: 2, c: 300 };
 		let obj2 = { b: 0, d: 100, e: 200};
@@ -330,7 +325,9 @@ try {
 		// - Do NOT use Object.assign()
 		// - Do use object spread properties
 		// - Think about the order!
-		let result = { obj1, obj2, obj3 };
+		let result = { ...obj1, ...obj3,...obj2 };
+
+		// etter alle destruct operasjoner: {a = 100, b = 0, c = 4, d = 100, e=200}
 
 		// Don't make changes below this line	
 		
@@ -342,18 +339,16 @@ try {
 
 		solved++;
 	})();
-	*/
 
   ////// BONUS //////
 
   /// Method definitions (bonus) ///
 
-  /*
 	(function UseMethodDefinitions() {
 		// Use method properties to remove unnecessary syntax. DO NOT use arrow functions.
 		let obj = {
-			add: function (a, b) { return a + b; },
-			subtract: function (a, b) { return a - b; }
+			add(a,b ) { return a + b; },
+			subtract (a, b) { return a - b; }
 		}
 
 		// Don't make changes below this line	
@@ -363,14 +358,15 @@ try {
 		
 		solvedBonus++;
 	})();
-	*/
 
   /// class (bonus) ///
 
-  /*
+
 	(function UseClass() {
 		// Let Multiplier be a class with the appropriate methods to succeed.
-		let Multiplier = 'class';
+		class Multiplier {
+			multiply(x){return x*2};
+		} 
 
 		// Don't make changes below this line	
 		
@@ -380,14 +376,14 @@ try {
 		
 		solvedBonus++;
 	})();
-	*/
 
   /// Template strings (bonus) ///
 
-  /*
+
 	(function UseTemplateStrings2() {
 		// Rewrite the line below to use a template string.
-		const text = 'line 1line 2';
+		const text = `line 1
+line 2`;
 
 		// Don't make changes below this line	
 		
@@ -395,17 +391,16 @@ try {
 		
 		solvedBonus++;
 	})();
-	*/
 
   /// Arrow functions (bonus) ///
 
-  /*
+
 	(function UseArrow3() {
 		// Rewrite all functions as arrow functions. Use as minimal syntax as possible.
-		let one = function () { return 1; };
-		let two = function (x) { return x + x; };
-		let three = function (x, y) { return x + y; };
-		let four = function (x, y) {
+		let one = () =>  1;
+		let two =  x =>  x + x;
+		let three = (x, y) => x + y;
+		let four =  (x, y) => {
 			let result = 0;
 			for (let i = x; i < y; i++)
 				result += i;
@@ -421,11 +416,9 @@ try {
 		
 		solvedBonus++;
 	})();
-	*/
 
   /// Destructuring (bonus) ///
 
-  /*
 	(function UseObjectDestructuring2() {
 		let obj = {
 			name: 'Oslo',
@@ -434,9 +427,17 @@ try {
 		}
 		
 		// Use object destructuring to change the 3 statements below into 1 statement.
+		/*
 		let a = obj.name;
 		let b = obj.age;
-		let c = obj.add;
+		let c = obj.add;*/
+
+		let {a,b,c} = {a: obj.name, b: obj.age, c: obj.add};
+
+		//let a, b, c = {...obj};
+
+		//console.log(a);
+
 
 		// Don't make changes below this line	
 		
@@ -446,8 +447,6 @@ try {
 		
 		solvedBonus++;
 	})();
-	*/
-
   /*
 	(function UseFailSoftDestructuring() {
 		const arr = [1, 2];
