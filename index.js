@@ -447,12 +447,12 @@ line 2`;
 		
 		solvedBonus++;
 	})();
-  /*
+  
 	(function UseFailSoftDestructuring() {
 		const arr = [1, 2];
 		
     // change the left side (before =) below to let the tests succeed.
-		let [a, b] = arr;
+		let [a, b, c=3, d] = arr;
 
 		// Don't make changes below this line	
 		
@@ -463,9 +463,8 @@ line 2`;
 
 		solvedBonus++;
 	})();
-	*/
 
-  /*
+	/*
 	(function UseNestedDestructuring() {
 		let obj = {
 			add: (x, y) => x + y,
@@ -476,7 +475,8 @@ line 2`;
 		// Use destructuring to change the 3 statements below into 1 statement.
 		let a = obj.add;
 		let b = obj.city.name;
-		let c = obj.arr.slice(1);
+		let c = obj.arr.slice(1); 
+		let [a, b ={ ...obj.city} ,c] = {...obj};
 
 		// Don't make changes below this line	
 		
@@ -486,8 +486,7 @@ line 2`;
 		
 		solvedBonus++;
 	})();
-	*/
-
+ 	*/
   /*
   (function UseDestructuring() {
     const arr = [1, 2, 3, 4];
