@@ -120,10 +120,10 @@ try {
 		const value = 4;
 		const arr2 = [5, 6];
 		// lagde ny variabel som inneholder en array de ovennevnte. Bruker ... på arr1 og arr2, som begge er arrays og må åpnes opp
-		const gathering = [...arr1, value, ...arr2]
+		const result = [...arr1, value, ...arr2]
 		
 		// Change after = to let the test pass. DO NOT use concat or loops, but use the spread operator.
-		let result = gathering;
+		// forsøk 17.02, ta vekk denne: let result = gathering;
 
 		//originalt let result = [0]
 
@@ -141,12 +141,11 @@ try {
 	(function UseArrow1() {
 		// Rewrite double as arrow function and make the test pass.
 		let double = (x) => x + x;
-		double(3)
 
-		// originalt 		let double = function (x) {
-		//	return x;
-		//};
-		// sjekke denne, ga double 3 som argument
+
+	
+
+	
 
 		// Don't make changes below this line	
 		
@@ -181,13 +180,19 @@ try {
 		// Use array destructuring to change the 3 statements below into 1 statement.
 		// Tip: Spread operator might be needed too.
 
-		let [a, d, b, ...c] = arr;
-		/*
-		 let a = arr[0];
+	// med d virker det. Men kan ikke ha med d	let [a, d, b, ...c] = arr;
+	//originalt:
+		
+		/*let a = arr[0];
 		let b = arr[2];
 		let c = arr.slice(3); */
 
-		//bare trykket ctrl+ s og ble godkjent?
+		//17.02: skrev greia under, og den går gjennom. Uten ekstra komma blir det feil
+		// Uten komma/tom plass får den 2, men forventer 3
+
+		let [a, , b, ...c] = arr;
+
+	
 
 		// Don't make changes below this line	
 		
